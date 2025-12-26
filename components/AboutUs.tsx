@@ -39,7 +39,7 @@ const aboutContent = {
   ],
 };
 
-const ValueCard = ({ value, index }) => {
+const ValueCard = ({ value, index }: { value: any; index: any }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const Icon = value.icon;
@@ -189,7 +189,7 @@ const AboutUs = () => {
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-        {aboutContent.values.map((value, index) => (
+        {aboutContent.values.map((value: any, index: any) => (
           <ValueCard key={index} value={value} index={index} />
         ))}
       </div>

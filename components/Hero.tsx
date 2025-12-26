@@ -165,7 +165,7 @@ const HeroSection = () => {
           className="px-12 py-3 text-white font-bold bg-purple-900 rounded-full shadow-[0px_10px_20px_rgba(0,0,0,0.1)] border border-purple-800 shadow-purple-800 relative overflow-hidden group"
         >
           <motion.span
-            className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-800"
+            className="absolute inset-0 bg-linear-to-r from-purple-600 to-purple-800"
             initial={{ x: "-100%" }}
             whileHover={{ x: 0 }}
             transition={{ duration: 0.3 }}

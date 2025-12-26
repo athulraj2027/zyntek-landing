@@ -9,7 +9,6 @@ const navContent = {
     { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
     { name: "About Us", href: "#about" },
-   
   ],
   cta: {
     text: "Get Started",
@@ -25,7 +24,7 @@ const Navbar = () => {
   const navOpacity = useTransform(scrollY, [0, 100], [0.95, 1]);
   const navScale = useTransform(scrollY, [0, 100], [0.95, 1]);
 
-  const handleLinkClick = (linkName, href) => {
+  const handleLinkClick = (linkName: string, href: string) => {
     setActiveLink(linkName);
 
     // Smooth scroll to section
@@ -74,7 +73,7 @@ const Navbar = () => {
                 fill="currentColor"
               />
             </motion.div>
-            <span className="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">
+            <span className="text-xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-purple-300 to-pink-300">
               {navContent.brand}
             </span>
           </motion.div>
@@ -127,10 +126,10 @@ const Navbar = () => {
             transition={{ delay: 0.6, duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative ml-4 px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white rounded-full font-bold text-sm overflow-hidden group cursor-pointer"
+            className="relative ml-4 px-6 py-2 bg-linear-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white rounded-full font-bold text-sm overflow-hidden group cursor-pointer"
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400"
+              className="absolute inset-0 bg-linear-to-r from-pink-400 to-purple-400"
               initial={{ x: "100%" }}
               whileHover={{ x: 0 }}
               transition={{ duration: 0.3 }}
@@ -145,7 +144,7 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-        className="md:hidden fixed top-5 left-4 right-4 z-50 shadow-[0px_10px_30px_rgba(88,28,135,0.3)] rounded-full px-6 py-3 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 border-2 border-purple-600/50 backdrop-blur-xl"
+        className="md:hidden fixed top-5 left-4 right-4 z-50 shadow-[0px_10px_30px_rgba(88,28,135,0.3)] rounded-full px-6 py-3 bg-linear-to-r from-purple-900 via-purple-800 to-purple-900 border-2 border-purple-600/50 backdrop-blur-xl"
       >
         {/* Animated background glow */}
         <motion.div

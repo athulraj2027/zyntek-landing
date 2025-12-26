@@ -40,7 +40,7 @@ const Connect = () => {
   });
   const [focusedField, setFocusedField] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -204,10 +204,10 @@ const Connect = () => {
                 boxShadow: "0 10px 30px rgba(168, 85, 247, 0.4)",
               }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
+              className="w-fullbg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
             >
               <motion.span
-                className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-500"
+                className="absolute inset-0 bg-linear-to-r from-purple-400 to-purple-500"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}

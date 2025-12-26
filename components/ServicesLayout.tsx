@@ -49,7 +49,7 @@ const ServiceCard = ({ service, index }: { service: any; index: any }) => {
       />
 
       {/* Content */}
-      <div className="relative z-20 p-8 pt-12 text-center min-h-[320px] flex flex-col items-center justify-center">
+      <div className="relative z-20 p-8 pt-12 text-center min-h-80 flex flex-col items-center justify-center">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={

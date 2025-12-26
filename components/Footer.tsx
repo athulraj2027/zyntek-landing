@@ -82,7 +82,7 @@ const Footer = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="w-full max-w-7xl bg-gradient-to-br from-purple-950 via-purple-900 to-purple-950 p-10 rounded-2xl shadow-2xl relative overflow-hidden"
+        className="w-full max-w-7xl bg-linear-to-br from-purple-950 via-purple-900 to-purple-950 p-10 rounded-2xl shadow-2xl relative overflow-hidden"
       >
         {/* Animated background elements */}
         <motion.div
@@ -122,7 +122,7 @@ const Footer = () => {
                     : { scale: 0.8, opacity: 0 }
                 }
                 transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
-                className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+                className="text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400"
               >
                 {footerContent.brand.name}
               </motion.h1>
@@ -218,7 +218,7 @@ const Footer = () => {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-6"
+            className="h-px bg-linear-to-r from-transparent via-purple-500 to-transparent mb-6"
           />
 
           {/* Bottom Section */}
