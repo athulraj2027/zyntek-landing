@@ -34,7 +34,7 @@ const ServiceCard = ({ service, index }: { service: any; index: any }) => {
       initial={{ y: 100, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
       transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-      className="relative rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-gradient-to-br from-purple-900 to-purple-950"
+      className="relative rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-linear-to-br from-purple-900 to-purple-950"
     >
       {/* Background with transition */}
       <motion.div

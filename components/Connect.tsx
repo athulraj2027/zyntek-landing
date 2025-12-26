@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, User, MessageSquare } from "lucide-react";
 
@@ -33,26 +33,7 @@ const connectContent = {
 const Connect = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [focusedField, setFocusedField] = useState(null);
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
-  };
-
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -71,7 +52,7 @@ const Connect = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -81,7 +62,6 @@ const Connect = () => {
       className="max-w-7xl mx-auto flex flex-col justify-center items-center px-6 py-16"
       id="contact"
     >
-      {/* Title Animation */}
       <motion.h2
         initial={{ opacity: 0, scale: 0.8, y: -30 }}
         animate={
@@ -95,7 +75,6 @@ const Connect = () => {
         {connectContent.title}
       </motion.h2>
 
-      {/* Form Container */}
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -103,7 +82,6 @@ const Connect = () => {
         animate={isInView ? "visible" : "hidden"}
         className="relative bg-purple-950 max-w-2xl w-full border-none p-8 rounded-xl shadow-2xl overflow-hidden"
       >
-        {/* Animated background gradient */}
         <motion.div
           animate={{
             background: [
@@ -117,7 +95,6 @@ const Connect = () => {
         />
 
         <div className="relative z-10 space-y-5">
-          {/* Input Fields Row */}
           <motion.div variants={itemVariants} className="flex gap-5">
             {connectContent.fields.slice(0, 2).map((field, index) => {
               const Icon = field.icon;
@@ -140,22 +117,11 @@ const Connect = () => {
                     }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
                   >
-                    <Icon
-                      className={`transition-colors duration-300 ${
-                        focusedField === field.name
-                          ? "text-purple-400"
-                          : "text-purple-600"
-                      }`}
-                      size={18}
-                    />
+                    <Icon className="text-purple-600" size={18} />
                   </motion.div>
+
                   <input
                     type={field.name === "email" ? "email" : "text"}
-                    name={field.name}
-                    value={formData[field.name]}
-                    onChange={handleChange}
-                    onFocus={() => setFocusedField(field.name)}
-                    onBlur={() => setFocusedField(null)}
                     placeholder={field.placeholder}
                     className="w-full pl-10 pr-4 py-3 bg-purple-900/50 border-2 border-purple-800 rounded-lg text-purple-100 placeholder:text-purple-500 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                   />
@@ -164,7 +130,6 @@ const Connect = () => {
             })}
           </motion.div>
 
-          {/* Textarea */}
           <motion.div variants={itemVariants} className="relative">
             <motion.div
               initial={{ scale: 0, x: -10 }}
@@ -172,21 +137,10 @@ const Connect = () => {
               transition={{ delay: 0.6, duration: 0.4, type: "spring" }}
               className="absolute left-3 top-4 pointer-events-none"
             >
-              <MessageSquare
-                className={`transition-colors duration-300 ${
-                  focusedField === "message"
-                    ? "text-purple-400"
-                    : "text-purple-600"
-                }`}
-                size={18}
-              />
+              <MessageSquare className="text-purple-600" size={18} />
             </motion.div>
+
             <motion.textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              onFocus={() => setFocusedField("message")}
-              onBlur={() => setFocusedField(null)}
               placeholder={connectContent.fields[2].placeholder}
               rows={5}
               whileHover={{ y: -2 }}
@@ -195,16 +149,14 @@ const Connect = () => {
             />
           </motion.div>
 
-          {/* Submit Button */}
           <motion.div variants={itemVariants}>
             <motion.button
-              onClick={handleSubmit}
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 30px rgba(168, 85, 247, 0.4)",
               }}
               whileTap={{ scale: 0.98 }}
-              className="w-fullbg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
+              className="w-full bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
             >
               <motion.span
                 className="absolute inset-0 bg-linear-to-r from-purple-400 to-purple-500"
@@ -225,24 +177,6 @@ const Connect = () => {
             </motion.button>
           </motion.div>
         </div>
-
-        {/* Decorative elements */}
-        <motion.div
-          initial={{ scale: 0, rotate: 0 }}
-          animate={
-            isInView ? { scale: 1, rotate: 360 } : { scale: 0, rotate: 0 }
-          }
-          transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-          className="absolute top-4 right-4 w-20 h-20 border-2 border-purple-700/30 rounded-full"
-        />
-        <motion.div
-          initial={{ scale: 0, rotate: 0 }}
-          animate={
-            isInView ? { scale: 1, rotate: -360 } : { scale: 0, rotate: 0 }
-          }
-          transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-          className="absolute bottom-4 left-4 w-16 h-16 border-2 border-purple-700/30 rounded-full"
-        />
       </motion.div>
     </div>
   );

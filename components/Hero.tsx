@@ -22,7 +22,7 @@ const HeroSection = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -50,7 +50,7 @@ const HeroSection = () => {
         duration: 2,
         repeat: Infinity,
         repeatDelay: 1,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   };

@@ -69,7 +69,7 @@ const ValueCard = ({ value, index }: { value: any; index: any }) => {
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 0.1 }}
         transition={{ duration: 0.3 }}
-        className={`absolute inset-0 bg-gradient-to-br ${value.color}`}
+        className={`absolute inset-0 bg-linear-to-br ${value.color}`}
       />
 
       {/* Animated border */}
@@ -77,7 +77,7 @@ const ValueCard = ({ value, index }: { value: any; index: any }) => {
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
-        className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${value.color} origin-left`}
+        className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${value.color} origin-left`}
       />
 
       <div className="relative p-6">
@@ -134,7 +134,7 @@ const ValueCard = ({ value, index }: { value: any; index: any }) => {
         initial={{ scale: 0 }}
         whileHover={{ scale: 1 }}
         transition={{ duration: 0.3 }}
-        className={`absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl ${value.color} opacity-20 rounded-tl-full`}
+        className={`absolute bottom-0 right-0 w-16 h-16 bg-linear-to-tl ${value.color} opacity-20 rounded-tl-full`}
       />
     </motion.div>
   );
